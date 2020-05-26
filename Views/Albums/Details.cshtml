@@ -1,0 +1,82 @@
+﻿@model EverestAlbumStore.Models.Album
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Album</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tittle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tittle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlbumDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlbumDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Charge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Charge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgeRestriction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgeRestriction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleasedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleasedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.length)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.length)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoverImagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoverImagePath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudioName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudioName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

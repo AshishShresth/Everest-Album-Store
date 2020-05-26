@@ -1,0 +1,50 @@
+﻿@model EverestAlbumStore.Models.Loan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Loan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Albums.Tittle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Albums.Tittle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Members.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Members.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IssuedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IssuedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReturnedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReturnedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

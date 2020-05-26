@@ -1,0 +1,42 @@
+﻿@model IEnumerable<EverestAlbumStore.Models.Loan>
+
+@{
+    ViewBag.Title = "ListCopiesOfAlbumNotLoaned";
+}
+
+<h2>ListCopiesOfAlbumNotLoaned</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Albums.Tittle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Members.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IssuedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReturnedDate)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Albums.Tittle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Members.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IssuedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReturnedDate)
+        </td>
+    </tr>
+}
+
+</table>

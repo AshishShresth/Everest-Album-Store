@@ -1,0 +1,42 @@
+﻿@model EverestAlbumStore.Models.ArtistAlbum
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ArtistAlbum</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Albums.Tittle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Albums.Tittle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Artist.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artist.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Producers.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Producers.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

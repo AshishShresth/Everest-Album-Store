@@ -1,0 +1,57 @@
+﻿;@model IEnumerable<EverestAlbumStore.Models.ArtistAlbum>
+
+@{
+    ViewBag.Title = "FilterTitlesByLastName";
+}
+
+<h2>FilterTitlesByLastName</h2>
+
+<form action="/Report/FilterTitlesByLastName" method="get">
+    @Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), null, null)
+    <button type="submit">Submit</button>
+</form>
+@if (Model != null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Albums.Tittle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Artist.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producers.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Albums.AlbumDetails)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Albums.ReleasedDate)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Albums.Tittle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Artist.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producers.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Albums.AlbumDetails)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Albums.ReleasedDate)
+            </td>
+        </tr>
+        }
+
+    </table>
+}
+

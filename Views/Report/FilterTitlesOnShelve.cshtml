@@ -1,0 +1,83 @@
+﻿ @model IEnumerable<EverestAlbumStore.Models.Album>
+
+<h2>FilterTitlesOnShelve</h2>
+
+<p>
+    Allow the user to enter or select an actor’s name (Lastname) and see the titles and the
+    number of copies on the shelves of all DVDs for which the Actor is a CastMember and
+    which have at least one copy on the shelves.
+</p>
+
+<form method="get" action="/Report/FilterTitlesOnShelve">
+    @Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), null, null)
+    <button type="submit">Search</button>
+</form>
+@if(Model != null)
+{
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tittle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlbumDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Charge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgeRestriction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReleasedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.length)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoverImagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudioName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tittle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlbumDetails)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Charge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AgeRestriction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleasedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.length)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoverImagePath)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudioName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+}
+

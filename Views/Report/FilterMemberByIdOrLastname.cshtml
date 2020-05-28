@@ -5,7 +5,13 @@
 }
 
 
-    <h2>Task 3</h2>
+<h2>Task 3</h2>
+<p>
+    Allow the user to enter or select a member by MemberNumber or MemberLastName
+    and view a list of all the DVDs (by title and copynumber) that they have been loaned
+    in the last 31 days (i.e. where there is a Loan row with DateOut >= Current_date-31,
+    whether the DVD has been returned or not).
+</p>
 
 <form method="get" action="/Report/FilterMemberByIdOrLastname">
     @Html.DropDownList("Name", new SelectList(ViewBag.Name, "Name", "Name"), null, null)

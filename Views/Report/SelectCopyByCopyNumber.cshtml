@@ -5,6 +5,11 @@
 }
 
 <h2>Task 5</h2>
+<p>
+    Allow the user to enter or select a Copy by CopyNumber and find the details of the last
+    loan for that copy (whether it is still on loan or has been returned), ie the Name of the
+    Member who borrowed it, the date out, due and back (if any) and the title of the DVD.
+</p>
 
 <form method="get" action="/Report/SelectCopyByCopyNumber">
     @Html.DropDownList("id", new SelectList(ViewBag.id, "id", "id"), null, null)

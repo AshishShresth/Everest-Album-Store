@@ -46,17 +46,26 @@
                 <!-- /Logo -->
                 <div>
                     <ul class="nav navbar-top-links navbar-left pull-left">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li><a href="/Albums">Album</a></li>
-                        <li><a href="/Artists">Artist</a></li>
-                        <li><a href="/Producers">Producers</a></li>
-                        <li><a href="/ArtistAlbums">Artist Album</a></li>
-                        <li><a href="/Loans">Loan</a></li>
-                        <li><a href="/Members">Member</a></li>
-                        <li><a href="/MemberCategories">Member Category</a></li>
-                        <li><a href="/UserAndRoles/AddUserToRole">Roles</a></li>
-                        <li><a href="/Account/Index">User Info</a></li>
+
+                        @using Microsoft.AspNet.Identity
+                        @if (Request.IsAuthenticated)
+                        {
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li><a href="/Albums">Album</a></li>
+                            <li><a href="/Artists">Artist</a></li>
+                            <li><a href="/Producers">Producers</a></li>
+                            <li><a href="/ArtistAlbums">Artist Album</a></li>
+                            <li><a href="/Loans">Loan</a></li>
+                            <li><a href="/Members">Member</a></li>
+                            <li><a href="/MemberCategories">Member Category</a></li>
+                            <li><a href="/UserAndRoles/AddUserToRole">Roles</a></li>
+                            <li><a href="/Account/Index">User Info</a></li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        }
+
                     </ul>
                 </div>
                 
@@ -147,7 +156,12 @@
         <div class="container-fluid">
             @RenderBody()
         </div>
-        <footer class="footer text-center"> 2020 &copy; groupWork </footer>
+        <footer class="footer text-center">
+            2020 &copy; Application Development GourpWork
+            <br />
+            Jasmine Praween, Bibek Shrestha, Ashish Shrestha, Sushanta Maskey
+
+        </footer>
     </div>
     @*<div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">

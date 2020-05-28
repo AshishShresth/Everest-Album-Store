@@ -141,3 +141,10 @@ C:\Users\Ashish\source\repos\EverestAlbumStore\obj\Debug\EverestAlbumStore.cspro
 C:\Users\Ashish\source\repos\EverestAlbumStore\obj\Debug\EverestAlbumStore.dll
 C:\Users\Ashish\source\repos\EverestAlbumStore\obj\Debug\EverestAlbumStore.pdb
 C:\Users\Ashish\source\repos\EverestAlbumStore\obj\Debug\EverestAlbumStore.Migrations.SecondCreate.resources
+C:\Users\Ashish\source\repos\EverestAlbumStore\obj\Debug\EverestAlbumStore.Migrations.ThirdCreate.resources
+C:\Users\Ashish\source\repos\EverestAlbumStore\obj\Debug\EverestAlbumStore.Migrations.FourthCreate.resources
+C:\Users\Ashish\source\repos\EverestAlbumStore\obj\Debug\EverestAlbumStore.Migrations.RolesUpdate.resources
+C:\Users\Ashish\source\repos\EverestAlbumStore\obj\Debug\EverestAlbumStore.Migrations.SixthMigration.resources
+C:\Users\Ashish\source\repos\EverestAlbumStore\obj\Debug\EverestAlbumStore.Migrations.ApplicationUserRole.resources
+C:\Users\Ashish\source\repos\EverestAlbumStore\obj\Debug\EverestAlbumStore.Migrations.EightCreate.resources
+C:\Users\Ashish\source\repos\EverestAlbumStore\obj\Debug\EverestAlbumStore.csprojAssemblyReference.cache

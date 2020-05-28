@@ -18,11 +18,6 @@ namespace EverestAlbumStore.Models
         }
     }
 
-    public class ApplicationRole : IdentityRole
-    {
-        public ApplicationRole() : base() { }
-        public ApplicationRole(string roleName) : base(roleName) { }
-    }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -50,6 +45,10 @@ namespace EverestAlbumStore.Models
 
         public System.Data.Entity.DbSet<EverestAlbumStore.Models.Loan> Loans { get; set; }
 
-        public System.Data.Entity.DbSet<EverestAlbumStore.ViewModels.RoleViewModel> RoleViewModels { get; set; }
+        //public System.Data.Entity.DbSet<EverestAlbumStore.ViewModels.RoleViewModel> RoleViewModels { get; set; }
+
+        public System.Data.Entity.DbSet<EverestAlbumStore.Models.LoanViewModel> LoanViewModels { get; set; }
+
+        //public System.Data.Entity.DbSet<EverestAlbumStore.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

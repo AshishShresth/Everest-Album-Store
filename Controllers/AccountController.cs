@@ -9,12 +9,15 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using EverestAlbumStore.Models;
+using System.Net;
+using System.Data.Entity;
 
 namespace EverestAlbumStore.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -50,6 +53,88 @@ namespace EverestAlbumStore.Controllers
             {
                 _userManager = value;
             }
+        }
+        
+        //Allusers
+        [Authorize(Roles = "Manager")]
+        public ActionResult Index()
+        {
+            var data = db.Users.ToList();
+            return View(data);
+        }
+        // GET: Users/Details/5
+        [Authorize(Roles = "Manager")]
+        public ActionResult Details(string id)
+        {
+            if (String.IsNullOrEmpty(id))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ApplicationUser appUser = db.Users.Find(id);
+            if (appUser == null)
+            {
+                return HttpNotFound();
+            }
+            return View(appUser);
+        }
+        //Edit user details
+        [Authorize(Roles = "Manager")]
+        public ActionResult Edit(string id)
+        {
+            ViewBag.id = db.Users.ToList();
+            if (string.IsNullOrEmpty(id))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ApplicationUser appUser = db.Users.Find(id);
+            if (appUser == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.AspNetUsers = new SelectList(db.Users, "Email", "PasswordHash", appUser.Id);
+            return View(appUser);
+        }
+        // POST: Edit USers
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Email, PasswordHash")] ApplicationUser appUser)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(appUser).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(appUser);
+        }
+
+        // GET: Artists/Delete/5
+        [Authorize(Roles = "Manager")]
+        public ActionResult Delete(string id)
+        {
+            if (String.IsNullOrEmpty(id))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ApplicationUser appUser = db.Users.Find(id);
+            if (appUser == null)
+            {
+                return HttpNotFound();
+            }
+            return View(appUser);
+        }
+
+        // POST: Artists/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(string id)
+        {
+            ApplicationUser appUser = db.Users.Find(id);
+            db.Users.Remove(appUser);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         //
@@ -231,7 +316,8 @@ namespace EverestAlbumStore.Controllers
 
         //
         // GET: /Account/ResetPassword
-        [AllowAnonymous]
+        //[AllowAnonymous]
+        [Authorize(Roles ="Assistant, Manager")]
         public ActionResult ResetPassword(string code)
         {
             return code == null ? View("Error") : View();
@@ -240,7 +326,8 @@ namespace EverestAlbumStore.Controllers
         //
         // POST: /Account/ResetPassword
         [HttpPost]
-        [AllowAnonymous]
+        //[AllowAnonymous]
+        [Authorize(Roles = "Assistant, Manager")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
         {
@@ -265,7 +352,8 @@ namespace EverestAlbumStore.Controllers
 
         //
         // GET: /Account/ResetPasswordConfirmation
-        [AllowAnonymous]
+        //[AllowAnonymous]
+        [Authorize(Roles = "Assistant, Manager")]
         public ActionResult ResetPasswordConfirmation()
         {
             return View();

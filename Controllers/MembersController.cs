@@ -15,6 +15,7 @@ namespace EverestAlbumStore.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Members
+        [Authorize(Roles = "Manager, Assistant")]
         public ActionResult Index()
         {
             var members = db.Members.Include(m => m.MemberCategories);
@@ -22,6 +23,7 @@ namespace EverestAlbumStore.Controllers
         }
 
         // GET: Members/Details/5
+        [Authorize(Roles = "Manager, Assistant")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +39,7 @@ namespace EverestAlbumStore.Controllers
         }
 
         // GET: Members/Create
+        [Authorize(Roles = "Manager, Assistant")]
         public ActionResult Create()
         {
             ViewBag.MemberCategoryId = new SelectList(db.MemberCategories, "Id", "CategoryName");
@@ -62,6 +65,7 @@ namespace EverestAlbumStore.Controllers
         }
 
         // GET: Members/Edit/5
+        [Authorize(Roles = "Manager, Assistant")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -95,6 +99,7 @@ namespace EverestAlbumStore.Controllers
         }
 
         // GET: Members/Delete/5
+        [Authorize(Roles = "Manager, Assistant")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

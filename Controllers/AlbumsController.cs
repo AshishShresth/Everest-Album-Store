@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -46,10 +47,18 @@ namespace EverestAlbumStore.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Tittle,AlbumDetails,Charge,AgeRestriction,ReleasedDate,length,CoverImagePath,StudioName")] Album album)
+        public ActionResult Create([Bind(Include = "Id,Tittle,AlbumDetails,Charge,AgeRestriction,ReleasedDate,CopyNumber,length,CoverImagePath,StudioName")] Album album)
         {
+           
             if (ModelState.IsValid)
             {
+                //string filename = Path.GetFileNameWithoutExtension(album.CoverImage.FileName);
+                //string extension = Path.GetExtension(album.CoverImage.FileName);
+                //filename = filename + DateTime.Now.ToString("yymmssff") + extension;
+                //album.CoverImagePath = "~/Image/" + filename;
+                //filename = Path.Combine(Server.MapPath("~/Image/"), filename);
+                //album.CoverImage.SaveAs(filename);
+
                 db.Albums.Add(album);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,7 +87,7 @@ namespace EverestAlbumStore.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Tittle,AlbumDetails,Charge,AgeRestriction,ReleasedDate,length,CoverImagePath,StudioName")] Album album)
+        public ActionResult Edit([Bind(Include = "Id,Tittle,AlbumDetails,Charge,AgeRestriction,ReleasedDate,CopyNumber,length,CoverImagePath,StudioName")] Album album)
         {
             if (ModelState.IsValid)
             {

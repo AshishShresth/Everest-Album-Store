@@ -22,6 +22,8 @@ namespace EverestAlbumStore.Models
         [Required]
         public DateTime ReleasedDate { get; set; }
         [Required]
+        public int CopyNumber { get; set; }
+        [Required]
         public string length { get; set; }
         [NotMapped]
         public HttpPostedFile CoverImage { get; set; }

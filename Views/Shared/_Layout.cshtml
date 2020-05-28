@@ -46,9 +46,17 @@
                 <!-- /Logo -->
                 <div>
                     <ul class="nav navbar-top-links navbar-left pull-left">
-                        <li >@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li><a href="/Albums">Album</a></li>
+                        <li><a href="/Artists">Artist</a></li>
+                        <li><a href="/Producers">Producers</a></li>
+                        <li><a href="/ArtistAlbums">Artist Album</a></li>
+                        <li><a href="/Loans">Loan</a></li>
+                        <li><a href="/Members">Member</a></li>
+                        <li><a href="/MemberCategories">Member Category</a></li>
+                        <li><a href="/UserAndRoles/AddUserToRole">Roles</a></li>
+                        <li><a href="/Account/Index">User Info</a></li>
                     </ul>
                 </div>
                 
@@ -77,35 +85,50 @@
                     @if (Request.IsAuthenticated)
                     {
                         <li style="padding: 100px 0 0;">
-                            <a href="dashboard.html" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Album</a>
+                            <a href="/Report/FilterTitlesByLastName" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i><strong>Task 1</strong></a>
                         </li>
                         <li>
-                            <a href="profile.html" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Artist</a>
+                            <a href="/Report/FilterTitlesOnShelve" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i><strong>Task 2</strong></a>
                         </li>
                         <li>
-                            <a href="basic-table.html" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i></a>
+                            <a href="/Report/FilterMemberByIdOrLastname" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i><strong>Task 3</strong></a>
                         </li>
                         <li>
-                            <a href="fontawesome.html" class="waves-effect"><i class="fa fa-font fa-fw" aria-hidden="true"></i>Icons</a>
+                            <a href="/Report/ListAlbumIncreasingOrder" class="waves-effect"><i class="fa fa-font fa-fw" aria-hidden="true"></i><strong>Task 4</strong></a>
                         </li>
                         <li>
-                            <a href="map-google.html" class="waves-effect"><i class="fa fa-globe fa-fw" aria-hidden="true"></i>Google Map</a>
+                            <a href="/Report/SelectCopyByCopyNumber" class="waves-effect"><i class="fa fa-globe fa-fw" aria-hidden="true"></i><strong>Task 5</strong></a>
                         </li>
                         <li>
-                            <a href="blank.html" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i>Blank Page</a>
+                            <a href="/Report/AlbumCopyLoanToMember" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i><strong>Task 6</strong></a>
                         </li>
                         <li>
-                            <a href="404.html" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>Error 404</a>
+                            <a href="/Report/RecordReturnOfAlbumCopy" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i><strong>Task 7</strong></a>
                         </li>
-
+                        <li>
+                            <a href="/Report/AlphabeticListOfAllMembers" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i><strong>Task 8</strong></a>
+                        </li>
+                        <li>
+                            <a href="/Report/ListAllAlbumsAYearOld" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i><strong>Task 10</strong></a>
+                        </li>
+                        <li>
+                            <a href="/Report/ListCopiesOfAlbumsOnLoan" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i><strong>Task 11</strong></a>
+                        </li>
+                        <li>
+                            <a href="/Report/ListOfMembersAlbumNotBorrowed" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i><strong>Task 12</strong></a>
+                        </li>
+                        <li>
+                            <a href="/Report/ListCopiesOfAlbumNotLoaned" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i><strong>Task 13</strong></a>
+                        </li>
+                        
                     }
                     else
                     {
                         <li style="padding: 100px 0 0;">
-                            <a href="blank.html" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i>Blank Page</a>
+                            <a href="/Report/FilterTitlesByLastName" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i>Task 1</a>
                         </li>
                         <li>
-                            <a href="404.html" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>Error 404</a>
+                            <a href="/Report/FilterTitlesOnShelve" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i>Task 2</a>
                         </li>
                     }
 

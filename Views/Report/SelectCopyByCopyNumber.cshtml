@@ -4,7 +4,7 @@
     ViewBag.Title = "SelectCopyByCopyNumber";
 }
 
-<h2>SelectCopyByCopyNumber</h2>
+<h2>Task 5</h2>
 
 <form method="get" action="/Report/SelectCopyByCopyNumber">
     @Html.DropDownList("id", new SelectList(ViewBag.id, "id", "id"), null, null)
@@ -12,7 +12,7 @@
 </form>
 @if (Model != null)
 {
-    <table class="table">
+    <table class="table table-bordered table-striped">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Albums.Tittle)

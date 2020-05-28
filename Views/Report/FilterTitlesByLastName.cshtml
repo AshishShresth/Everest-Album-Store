@@ -1,10 +1,15 @@
-﻿;@model IEnumerable<EverestAlbumStore.Models.ArtistAlbum>
+﻿@model IEnumerable<EverestAlbumStore.Models.ArtistAlbum>
 
 @{
     ViewBag.Title = "FilterTitlesByLastName";
 }
 
-<h2>FilterTitlesByLastName</h2>
+<h2>Task 1</h2>
+<p>
+    Allow the user to enter or select an actor’s name (Lastname) and see the titles of all
+    DVDs stocked by the shop (whether on loan or on the shelves) for which the Actor is a
+    CastMember.
+</p>
 
 <form action="/Report/FilterTitlesByLastName" method="get">
     @Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), null, null)
@@ -12,7 +17,7 @@
 </form>
 @if (Model != null)
 {
-    <table class="table">
+    <table class="table table-bordered table-striped">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Albums.Tittle)

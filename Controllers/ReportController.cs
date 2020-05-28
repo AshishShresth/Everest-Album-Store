@@ -21,6 +21,7 @@ namespace EverestAlbumStore.Controllers
         }
 
         //Task1
+        [AllowAnonymous]
         
         public ActionResult FilterTitlesByLastName(string LastName)
         {
@@ -35,6 +36,7 @@ namespace EverestAlbumStore.Controllers
         }
 
         //Task2
+        [AllowAnonymous]
         public ActionResult FilterTitlesOnShelve(string LastName)
         {
             ViewBag.LastName = db.Artists.ToList();

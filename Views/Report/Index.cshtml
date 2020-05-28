@@ -7,9 +7,12 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button>
+        @Html.ActionLink("Create New", "Create")
+    </button>
+   
 </p>
-<table class="table">
+<tableclass="table table-bordered table-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Albums.Tittle)

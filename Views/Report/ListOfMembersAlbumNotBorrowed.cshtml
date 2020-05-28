@@ -4,12 +4,15 @@
     ViewBag.Title = "ListOfMembersAlbumNotBorrowed";
 }
 
-<h2>ListOfMembersAlbumNotBorrowed</h2>
+<h2>Task 12</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button>
+        @Html.ActionLink("Create New", "Create")
+    </button>
+   
 </p>
-<table class="table">
+<table class="table table-bordered table-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Albums.Tittle)
